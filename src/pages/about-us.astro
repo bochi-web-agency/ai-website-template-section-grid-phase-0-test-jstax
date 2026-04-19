@@ -1,240 +1,239 @@
 ---
 import Base from "../layouts/Base.astro";
+
+const values = [
+  {
+    icon: "🎯",
+    title: "Accuracy",
+    description:
+      "We take pride in delivering precise, error-free financial reporting and tax preparation for every client.",
+  },
+  {
+    icon: "🤝",
+    title: "Integrity",
+    description:
+      "Our team operates with complete transparency, keeping your best interests at the center of every decision.",
+  },
+  {
+    icon: "💡",
+    title: "Expertise",
+    description:
+      "With decades of combined experience, we bring deep knowledge of tax law and accounting best practices.",
+  },
+  {
+    icon: "🔒",
+    title: "Confidentiality",
+    description:
+      "Your financial information is handled with the highest level of security and professional discretion.",
+  },
+];
+
+const team = [
+  {
+    name: "James Sullivan",
+    title: "Founder & Senior Tax Accountant",
+    bio: "James has over 25 years of experience in tax planning and accounting for individuals and small businesses across the region.",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    name: "Sandra Torres",
+    title: "Co-Founder & CPA",
+    bio: "Sandra specializes in corporate tax strategy and financial compliance, helping clients minimize liability while staying fully compliant.",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    name: "Michael Chen",
+    title: "Senior Tax Advisor",
+    bio: "Michael brings 15 years of experience advising clients on bookkeeping, payroll, and multi-state tax filings.",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    name: "Priya Nair",
+    title: "Client Relations Manager",
+    bio: "Priya ensures every client receives prompt, personalized service and clear communication throughout the process.",
+    image: "/images/placeholder.jpg",
+  },
+];
+
+const stats = [
+  { value: "25+", label: "Years in Business" },
+  { value: "1,200+", label: "Clients Served" },
+  { value: "98%", label: "Client Retention Rate" },
+  { value: "4", label: "Certified Professionals" },
+];
 ---
 
-<Base title="About Us | J&S Tax Accountants">
-  <!-- Hero / Page Banner -->
+<Base title="About Us — J&S Tax Accountants">
+  <!-- ── Hero Banner ─────────────────────────────────────────── -->
   <section
     id="hero"
-    class="relative bg-blue-900 text-white py-24 px-6 text-center overflow-hidden"
+    class="relative bg-blue-900 text-white py-24 px-6 overflow-hidden"
   >
-    <div class="absolute inset-0 opacity-20">
-      <img
-        src="/images/placeholder.jpg"
-        alt=""
-        class="w-full h-full object-cover"
-      />
-    </div>
-    <div class="relative z-10 max-w-3xl mx-auto">
+    <div
+      class="absolute inset-0 bg-cover bg-center opacity-20"
+      style="background-image: url('/images/placeholder.jpg');"
+    ></div>
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
       <p class="text-blue-300 uppercase tracking-widest text-sm font-semibold mb-3">
         Who We Are
       </p>
-      <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
         About J&amp;S Tax Accountants
       </h1>
-      <p class="text-blue-100 text-lg leading-relaxed">
-        Trusted accounting and tax professionals serving individuals and
-        businesses with integrity, expertise, and personalized service.
+      <p class="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+        A family-founded firm built on trust, precision, and a genuine commitment
+        to helping individuals and businesses achieve financial peace of mind.
       </p>
     </div>
   </section>
 
-  <!-- Our Story -->
+  <!-- ── Our Story ───────────────────────────────────────────── -->
   <section id="our-story" class="py-20 px-6 bg-white">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <div class="rounded-2xl overflow-hidden shadow-lg">
         <img
           src="/images/placeholder.jpg"
-          alt="Our office team"
-          class="w-full h-80 object-cover"
+          alt="J&S Tax Accountants office"
+          class="w-full h-full object-cover"
         />
       </div>
       <div>
-        <p class="text-blue-600 uppercase tracking-widest text-sm font-semibold mb-2">
+        <p class="text-blue-600 uppercase tracking-widest text-sm font-semibold mb-3">
           Our Story
         </p>
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">
-          Built on Trust &amp; Decades of Experience
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-snug">
+          Two Decades of Trusted Tax &amp; Accounting Services
         </h2>
-        <p class="text-gray-600 leading-relaxed mb-4">
-          J&amp;S Tax Accountants was founded with a clear mission: to provide
-          high-quality, reliable accounting and tax services to individuals,
-          families, and businesses of all sizes. Over the years, we have grown
-          into a respected firm known for our meticulous attention to detail and
-          our commitment to our clients' financial success.
+        <p class="text-gray-600 mb-4 leading-relaxed">
+          J&amp;S Tax Accountants was founded in 1999 by James Sullivan and Sandra
+          Torres with a simple mission: deliver honest, professional accounting
+          services that real people and real businesses can rely on.
         </p>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          Our team brings together decades of combined experience in tax
-          preparation, bookkeeping, payroll, and financial consulting. Whether
-          you're filing a simple return or navigating a complex business
-          structure, we have the expertise to guide you every step of the way.
+        <p class="text-gray-600 mb-4 leading-relaxed">
+          What started as a two-person practice in a small local office has grown
+          into a full-service accounting firm serving more than 1,200 clients
+          across the state. We work with freelancers, families, small-business
+          owners, and mid-size corporations — tailoring every engagement to the
+          specific needs of each client.
         </p>
-        <div class="flex gap-8">
-          <div>
-            <span class="text-4xl font-extrabold text-blue-700">20+</span>
-            <p class="text-gray-500 text-sm mt-1">Years in Business</p>
-          </div>
-          <div>
-            <span class="text-4xl font-extrabold text-blue-700">1,500+</span>
-            <p class="text-gray-500 text-sm mt-1">Clients Served</p>
-          </div>
-          <div>
-            <span class="text-4xl font-extrabold text-blue-700">98%</span>
-            <p class="text-gray-500 text-sm mt-1">Client Satisfaction</p>
-          </div>
-        </div>
+        <p class="text-gray-600 leading-relaxed">
+          Despite our growth, we've never lost the personal touch that defines
+          us. When you work with J&amp;S, you always know who's handling your
+          account and you always have a direct line to a qualified professional.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Mission & Values -->
+  <!-- ── Stats ──────────────────────────────────────────────── -->
+  <section id="stats" class="bg-blue-800 py-16 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+      {
+        stats.map((stat) => (
+          <div>
+            <p class="text-4xl md:text-5xl font-extrabold mb-2">{stat.value}</p>
+            <p class="text-blue-200 text-sm uppercase tracking-wide font-medium">
+              {stat.label}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ── Core Values ─────────────────────────────────────────── -->
   <section id="values" class="py-20 px-6 bg-gray-50">
-    <div class="max-w-6xl mx-auto text-center mb-14">
-      <p class="text-blue-600 uppercase tracking-widest text-sm font-semibold mb-2">
-        What Drives Us
-      </p>
-      <h2 class="text-3xl font-bold text-gray-800">Our Mission &amp; Core Values</h2>
-      <p class="text-gray-500 mt-3 max-w-xl mx-auto">
-        Everything we do is guided by a commitment to honesty, accuracy, and
-        putting our clients first.
-      </p>
-    </div>
-    <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {[
-        {
-          icon: "⚖️",
-          title: "Integrity",
-          desc: "We operate with complete transparency and honesty in every engagement, large or small.",
-        },
-        {
-          icon: "🎯",
-          title: "Accuracy",
-          desc: "Precision is non-negotiable. We double-check every figure to ensure flawless filings.",
-        },
-        {
-          icon: "🤝",
-          title: "Client-First",
-          desc: "Your financial goals are our priority. We tailor our approach to fit your unique situation.",
-        },
-        {
-          icon: "📚",
-          title: "Continuous Learning",
-          desc: "Tax laws change constantly. Our team stays current so you never miss a benefit.",
-        },
-        {
-          icon: "🔒",
-          title: "Confidentiality",
-          desc: "We treat your personal and financial information with the highest level of discretion.",
-        },
-        {
-          icon: "💡",
-          title: "Proactive Advice",
-          desc: "We don't just file returns — we identify opportunities to save you money year-round.",
-        },
-      ].map((v) => (
-        <div class="bg-white rounded-2xl p-7 shadow-sm hover:shadow-md transition-shadow">
-          <div class="text-4xl mb-4">{v.icon}</div>
-          <h3 class="text-lg font-semibold text-gray-800 mb-2">{v.title}</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Meet the Team -->
-  <section id="team" class="py-20 px-6 bg-white">
-    <div class="max-w-6xl mx-auto text-center mb-14">
-      <p class="text-blue-600 uppercase tracking-widest text-sm font-semibold mb-2">
-        The People Behind the Numbers
-      </p>
-      <h2 class="text-3xl font-bold text-gray-800">Meet Our Team</h2>
-      <p class="text-gray-500 mt-3 max-w-xl mx-auto">
-        A dedicated group of certified professionals passionate about helping
-        you achieve financial clarity and confidence.
-      </p>
-    </div>
-    <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {[
-        { name: "James Sullivan", role: "Founder & Senior CPA", years: "22 yrs exp." },
-        { name: "Sandra Torres", role: "Tax Director", years: "15 yrs exp." },
-        { name: "Michael Chen", role: "Business Accountant", years: "10 yrs exp." },
-        { name: "Priya Patel", role: "Payroll Specialist", years: "8 yrs exp." },
-      ].map((member) => (
-        <div class="text-center group">
-          <div class="overflow-hidden rounded-2xl mb-4 shadow-sm">
-            <img
-              src="/images/placeholder.jpg"
-              alt={member.name}
-              class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <h3 class="text-gray-800 font-semibold text-lg">{member.name}</h3>
-          <p class="text-blue-600 text-sm font-medium">{member.role}</p>
-          <p class="text-gray-400 text-xs mt-1">{member.years}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Why Choose Us -->
-  <section id="why-us" class="py-20 px-6 bg-blue-900 text-white">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <p class="text-blue-300 uppercase tracking-widest text-sm font-semibold mb-2">
-          Why J&amp;S Tax?
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="text-blue-600 uppercase tracking-widest text-sm font-semibold mb-3">
+          What Drives Us
         </p>
-        <h2 class="text-3xl font-bold mb-5">
-          The Difference a Dedicated Team Makes
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Our Core Values
         </h2>
-        <p class="text-blue-100 leading-relaxed mb-8">
-          With countless accounting firms to choose from, we understand you have
-          options. Here's why hundreds of clients return to us year after year —
-          and refer their friends and family.
+        <p class="text-gray-500 max-w-xl mx-auto">
+          Every decision we make, every return we file, and every client we serve
+          is guided by these foundational principles.
         </p>
-        <ul class="space-y-4">
-          {[
-            "Certified CPAs and enrolled agents on staff",
-            "Year-round support — not just during tax season",
-            "Fixed, transparent pricing with no surprise fees",
-            "Convenient online document submission portal",
-            "IRS representation in the event of an audit",
-            "Bilingual staff available for Spanish-speaking clients",
-          ].map((item) => (
-            <li class="flex items-start gap-3">
-              <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-xs font-bold">
-                ✓
-              </span>
-              <span class="text-blue-100 text-sm">{item}</span>
-            </li>
-          ))}
-        </ul>
       </div>
-      <div class="rounded-2xl overflow-hidden shadow-xl">
-        <img
-          src="/images/placeholder.jpg"
-          alt="Accountants at work"
-          class="w-full h-96 object-cover"
-        />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          values.map((v) => (
+            <div class="bg-white rounded-2xl shadow-sm p-8 text-center hover:shadow-md transition-shadow duration-300">
+              <div class="text-5xl mb-5">{v.icon}</div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{v.title}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">
+                {v.description}
+              </p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="contact-cta" class="py-20 px-6 bg-gray-50 text-center">
-    <div class="max-w-2xl mx-auto">
-      <p class="text-blue-600 uppercase tracking-widest text-sm font-semibold mb-2">
-        Ready to Get Started?
-      </p>
-      <h2 class="text-3xl font-bold text-gray-800 mb-4">
-        Let's Talk About Your Tax &amp; Accounting Needs
+  <!-- ── Meet the Team ───────────────────────────────────────── -->
+  <section id="team" class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="text-blue-600 uppercase tracking-widest text-sm font-semibold mb-3">
+          The People Behind Your Returns
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Meet Our Team
+        </h2>
+        <p class="text-gray-500 max-w-xl mx-auto">
+          Our certified professionals bring a wealth of experience and a genuine
+          passion for helping clients reach their financial goals.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          team.map((member) => (
+            <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
+              <img
+                src={member.image}
+                alt={member.name}
+                class="w-full h-52 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-1">
+                  {member.name}
+                </h3>
+                <p class="text-blue-600 text-sm font-medium mb-3">
+                  {member.title}
+                </p>
+                <p class="text-gray-500 text-sm leading-relaxed">{member.bio}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Call to Action ──────────────────────────────────────── -->
+  <section id="cta" class="bg-blue-900 py-20 px-6 text-white text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-5">
+        Ready to Work With a Team You Can Trust?
       </h2>
-      <p class="text-gray-500 leading-relaxed mb-8">
+      <p class="text-blue-200 text-lg mb-10 leading-relaxed">
         Whether you need help with personal taxes, business accounting, or
-        payroll, our team is here to simplify the process and maximize your
-        results. Schedule a free consultation today.
+        year-round financial planning — we're here and ready to help.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="/contact-us"
-          class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-full transition-colors"
+          class="inline-block bg-white text-blue-900 font-semibold px-8 py-4 rounded-full hover:bg-blue-50 transition-colors duration-200"
         >
-          Schedule a Free Consultation
+          Get in Touch
         </a>
         <a
-          href="tel:+15551234567"
-          class="inline-block border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white font-semibold py-3 px-8 rounded-full transition-colors"
+          href="/services"
+          class="inline-block border border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors duration-200"
         >
-          Call (555) 123-4567
+          View Our Services
         </a>
       </div>
     </div>
