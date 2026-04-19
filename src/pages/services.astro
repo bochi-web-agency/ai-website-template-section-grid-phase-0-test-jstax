@@ -1,0 +1,394 @@
+---
+import Base from "../layouts/Base.astro";
+
+const services = [
+  {
+    id: 1,
+    icon: "📊",
+    title: "Tax Preparation",
+    description:
+      "Accurate and timely preparation of individual and business tax returns. We ensure you maximize deductions and comply with all current tax laws to minimize your liability.",
+    features: ["Individual Returns (1040)", "Business Returns", "State & Local Taxes", "Prior Year Returns"],
+  },
+  {
+    id: 2,
+    icon: "📁",
+    title: "Bookkeeping",
+    description:
+      "Comprehensive bookkeeping services to keep your financial records organized and up to date. Focus on running your business while we handle the numbers.",
+    features: ["Monthly Reconciliations", "Accounts Payable/Receivable", "Financial Statements", "Payroll Processing"],
+  },
+  {
+    id: 3,
+    icon: "📈",
+    title: "Tax Planning",
+    description:
+      "Proactive tax planning strategies designed to reduce your overall tax burden. We work with you year-round to identify opportunities and avoid surprises at tax time.",
+    features: ["Year-Round Planning", "Business Structuring", "Retirement Planning", "Investment Tax Strategy"],
+  },
+  {
+    id: 4,
+    icon: "🏢",
+    title: "Business Accounting",
+    description:
+      "Full-service accounting solutions for small and mid-sized businesses. From setup to ongoing management, we are your trusted financial partner.",
+    features: ["Chart of Accounts Setup", "Monthly Reporting", "Cash Flow Analysis", "Budget Forecasting"],
+  },
+  {
+    id: 5,
+    icon: "🛡️",
+    title: "IRS Representation",
+    description:
+      "Facing an IRS audit or notice? Our experienced team will represent you before the IRS, protecting your rights and working toward the best possible resolution.",
+    features: ["Audit Representation", "Installment Agreements", "Penalty Abatement", "Offer in Compromise"],
+  },
+  {
+    id: 6,
+    icon: "🚀",
+    title: "Business Startup Services",
+    description:
+      "Starting a new business? We guide you through entity selection, registration, and initial accounting setup so you start on solid financial footing.",
+    features: ["Entity Selection (LLC, S-Corp, etc.)", "EIN Registration", "Accounting Software Setup", "Initial Compliance"],
+  },
+];
+
+const testimonials = [
+  {
+    name: "Maria L.",
+    role: "Small Business Owner",
+    quote:
+      "J&S Tax has handled our business accounting for three years. They're always responsive, thorough, and proactive. I couldn't imagine working with anyone else.",
+  },
+  {
+    name: "David R.",
+    role: "Freelance Consultant",
+    quote:
+      "Filing taxes used to stress me out every year. The team at J&S made the whole process painless and I ended up getting a much larger refund than I expected!",
+  },
+  {
+    name: "Sandra K.",
+    role: "Restaurant Owner",
+    quote:
+      "When I received an IRS notice, I panicked. J&S Tax stepped in immediately, handled everything professionally, and resolved the issue quickly. True lifesavers.",
+  },
+];
+---
+
+<Base title="Services | J&S Tax Accountants">
+  <!-- Hero / Page Banner -->
+  <section
+    id="hero"
+    class="relative bg-[#1a3a5c] text-white py-24 overflow-hidden"
+  >
+    <div
+      class="absolute inset-0 opacity-20 bg-cover bg-center"
+      style="background-image: url('/images/placeholder.jpg');"
+    ></div>
+    <div class="relative max-w-5xl mx-auto px-6 text-center">
+      <p class="uppercase tracking-widest text-[#f0a500] text-sm font-semibold mb-3">
+        What We Offer
+      </p>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-5">
+        Comprehensive Tax &amp; Accounting Services
+      </h1>
+      <p class="text-lg text-blue-100 max-w-2xl mx-auto mb-8">
+        From individual tax returns to full-scale business accounting, J&amp;S
+        Tax Accountants delivers expert financial services tailored to your
+        unique needs.
+      </p>
+      <a
+        href="#contact"
+        class="inline-block bg-[#f0a500] hover:bg-[#d4920a] text-white font-semibold px-8 py-3 rounded-full transition-colors duration-200"
+      >
+        Get a Free Consultation
+      </a>
+    </div>
+  </section>
+
+  <!-- Intro Strip -->
+  <section class="bg-[#f0a500] py-6">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-white">
+      <p class="text-lg font-semibold text-center md:text-left">
+        Trusted by hundreds of individuals and businesses across the region.
+      </p>
+      <a
+        href="tel:+15551234567"
+        class="whitespace-nowrap bg-white text-[#f0a500] font-bold px-6 py-2 rounded-full hover:bg-[#1a3a5c] hover:text-white transition-colors duration-200"
+      >
+        📞 (555) 123-4567
+      </a>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section id="services" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <p class="uppercase tracking-widest text-[#f0a500] text-sm font-semibold mb-2">
+          Our Services
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1a3a5c] mb-4">
+          Everything You Need in One Place
+        </h2>
+        <p class="text-gray-500 max-w-xl mx-auto">
+          We offer a full suite of accounting and tax services designed to keep
+          your finances healthy and compliant — all year long.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          services.map((service) => (
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+              <div class="text-5xl mb-5">{service.icon}</div>
+              <h3 class="text-xl font-bold text-[#1a3a5c] mb-3">
+                {service.title}
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-1">
+                {service.description}
+              </p>
+              <ul class="space-y-2">
+                {service.features.map((f) => (
+                  <li class="flex items-center gap-2 text-sm text-gray-600">
+                    <span class="w-4 h-4 rounded-full bg-[#f0a500] flex items-center justify-center text-white text-xs flex-shrink-0">
+                      ✓
+                    </span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section id="why-us" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <!-- Image -->
+        <div class="relative">
+          <img
+            src="/images/placeholder.jpg"
+            alt="J&S Tax team at work"
+            class="w-full h-80 object-cover rounded-2xl shadow-md"
+          />
+          <div class="absolute -bottom-6 -right-6 bg-[#1a3a5c] text-white rounded-2xl p-6 shadow-lg hidden md:block">
+            <p class="text-4xl font-bold text-[#f0a500]">15+</p>
+            <p class="text-sm mt-1">Years of Experience</p>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div>
+          <p class="uppercase tracking-widest text-[#f0a500] text-sm font-semibold mb-2">
+            Why J&amp;S Tax?
+          </p>
+          <h2 class="text-3xl md:text-4xl font-bold text-[#1a3a5c] mb-5">
+            Your Financial Success Is Our Priority
+          </h2>
+          <p class="text-gray-500 leading-relaxed mb-6">
+            At J&amp;S Tax Accountants, we believe every client deserves
+            personalized attention and expert guidance. We take the time to
+            understand your situation and craft strategies that make a real
+            difference in your financial well-being.
+          </p>
+
+          <div class="space-y-4">
+            {
+              [
+                {
+                  title: "Certified &amp; Experienced Professionals",
+                  desc: "Our team of CPAs and enrolled agents brings decades of combined experience to every engagement.",
+                },
+                {
+                  title: "Year-Round Support",
+                  desc: "We're here for you 365 days a year — not just during tax season — to answer questions and provide guidance.",
+                },
+                {
+                  title: "Transparent, Flat-Fee Pricing",
+                  desc: "No hidden fees, no billing surprises. You'll always know exactly what you're paying before we begin.",
+                },
+                {
+                  title: "Secure & Confidential",
+                  desc: "Your financial data is protected with bank-level security and strict confidentiality protocols.",
+                },
+              ].map((item) => (
+                <div class="flex gap-4">
+                  <div class="w-8 h-8 rounded-full bg-[#f0a500] flex items-center justify-center text-white font-bold flex-shrink-0 mt-0.5">
+                    ✓
+                  </div>
+                  <div>
+                    <h4
+                      class="font-semibold text-[#1a3a5c]"
+                      set:html={item.title}
+                    />
+                    <p class="text-sm text-gray-500 mt-0.5">{item.desc}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-20 bg-[#1a3a5c]">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="uppercase tracking-widest text-[#f0a500] text-sm font-semibold mb-2">
+          Client Stories
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">
+          What Our Clients Say
+        </h2>
+        <p class="text-blue-200 max-w-xl mx-auto">
+          Don't just take our word for it. Here's what real clients have to say
+          about working with J&amp;S Tax Accountants.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          testimonials.map((t) => (
+            <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl p-7 flex flex-col">
+              <div class="text-[#f0a500] text-3xl mb-4">"</div>
+              <p class="text-blue-100 text-sm leading-relaxed flex-1 mb-6">
+                {t.quote}
+              </p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-[#f0a500] flex items-center justify-center text-white font-bold text-sm">
+                  {t.name.charAt(0)}
+                </div>
+                <div>
+                  <p class="font-semibold text-white text-sm">{t.name}</p>
+                  <p class="text-blue-300 text-xs">{t.role}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / CTA -->
+  <section id="contact" class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="uppercase tracking-widest text-[#f0a500] text-sm font-semibold mb-2">
+          Get In Touch
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1a3a5c] mb-3">
+          Ready to Get Started?
+        </h2>
+        <p class="text-gray-500 max-w-xl mx-auto">
+          Schedule a free consultation with one of our tax professionals today.
+          We'll review your situation and recommend the best path forward.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-8 md:p-12">
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="flex flex-col gap-1">
+            <label class="text-sm font-medium text-gray-700" for="first-name">
+              First Name
+            </label>
+            <input
+              id="first-name"
+              type="text"
+              placeholder="Jane"
+              class="border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#f0a500] transition"
+            />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="text-sm font-medium text-gray-700" for="last-name">
+              Last Name
+            </label>
+            <input
+              id="last-name"
+              type="text"
+              placeholder="Smith"
+              class="border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#f0a500] transition"
+            />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="text-sm font-medium text-gray-700" for="email">
+              Email Address
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="jane@example.com"
+              class="border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#f0a500] transition"
+            />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="text-sm font-medium text-gray-700" for="phone">
+              Phone Number
+            </label>
+            <input
+              id="phone"
+              type="tel"
+              placeholder="(555) 000-0000"
+              class="border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#f0a500] transition"
+            />
+          </div>
+          <div class="flex flex-col gap-1 md:col-span-2">
+            <label class="text-sm font-medium text-gray-700" for="service">
+              Service Interested In
+            </label>
+            <select
+              id="service"
+              class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#f0a500] transition"
+            >
+              <option value="">Select a service...</option>
+              {services.map((s) => <option value={s.id}>{s.title}</option>)}
+            </select>
+          </div>
+          <div class="flex flex-col gap-1 md:col-span-2">
+            <label class="text-sm font-medium text-gray-700" for="message">
+              Message
+            </label>
+            <textarea
+              id="message"
+              rows={4}
+              placeholder="Tell us a bit about your situation..."
+              class="border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#f0a500] transition resize-none"
+            ></textarea>
+          </div>
+          <div class="md:col-span-2">
+            <button
+              type="submit"
+              class="w-full bg-[#f0a500] hover:bg-[#d4920a] text-white font-semibold py-3 rounded-lg transition-colors duration-200 text-sm"
+            >
+              Send Message &rarr;
+            </button>
+          </div>
+        </form>
+
+        <div class="mt-8 pt-8 border-t border-gray-100 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          {
+            [
+              { icon: "📍", label: "Address", value: "123 Main Street, Suite 200\nAnytown, ST 00000" },
+              { icon: "📞", label: "Phone", value: "(555) 123-4567" },
+              { icon: "✉️", label: "Email", value: "info@jstaxaccountants.com" },
+            ].map((item) => (
+              <div>
+                <div class="text-2xl mb-1">{item.icon}</div>
+                <p class="text-xs font-semibold uppercase tracking-widest text-[#f0a500] mb-1">
+                  {item.label}
+                </p>
+                <p class="text-sm text-gray-600 whitespace-pre-line">{item.value}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
