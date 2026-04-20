@@ -1,378 +1,471 @@
 ---
 import Base from "../layouts/Base.astro";
+import { getEntry } from "astro:content";
+
+const entry = await getEntry("pages", "services");
+const { title, description, meta_title, meta_image, hero_title, hero_content, hero_cta } = entry.data;
 
 const services = [
   {
-    id: "tax-preparation",
-    title: "Tax Preparation",
     icon: "📋",
+    title: "Tax Preparation",
     description:
-      "Comprehensive individual and business tax preparation services. We handle federal, state, and local returns with precision and care, maximizing your deductions while keeping you fully compliant.",
-    features: ["Individual Returns", "Business Returns", "Multi-State Filing", "Prior Year Returns"],
+      "Accurate and timely tax return preparation for individuals, families, and self-employed professionals. We ensure you receive every deduction you're entitled to.",
+    link: "/contact-us",
   },
   {
-    id: "tax-planning",
+    icon: "📊",
     title: "Tax Planning",
-    icon: "🗓️",
     description:
-      "Proactive tax planning strategies tailored to your financial situation. We work with you year-round to minimize your tax liability and prepare for future obligations.",
-    features: ["Year-Round Planning", "Retirement Tax Strategy", "Investment Tax Planning", "Life Event Planning"],
+      "Proactive strategies to minimize your tax liability year-round. We analyze your financial picture and create a customized plan to keep more money in your pocket.",
+    link: "/contact-us",
   },
   {
-    id: "bookkeeping",
+    icon: "🏢",
+    title: "Business Tax Services",
+    description:
+      "Comprehensive tax solutions for corporations, partnerships, LLCs, and small businesses — from quarterly estimates to annual filings and everything in between.",
+    link: "/contact-us",
+  },
+  {
+    icon: "📁",
     title: "Bookkeeping",
-    icon: "📒",
     description:
-      "Accurate and timely bookkeeping services for small to mid-sized businesses. We keep your financial records organized so you can focus on growing your business.",
-    features: ["Monthly Reconciliation", "Accounts Payable/Receivable", "Financial Reporting", "Cloud-Based Solutions"],
+      "Reliable, organized bookkeeping services that keep your finances in order throughout the year so you're always ready for tax season and business decisions.",
+    link: "/contact-us",
   },
   {
-    id: "payroll-services",
-    title: "Payroll Services",
-    icon: "💼",
-    description:
-      "Reliable payroll processing to ensure your employees are paid accurately and on time. We handle all payroll tax filings and compliance requirements.",
-    features: ["Payroll Processing", "Payroll Tax Filing", "Direct Deposit Setup", "W-2 & 1099 Preparation"],
-  },
-  {
-    id: "business-consulting",
-    title: "Business Consulting",
-    icon: "📈",
-    description:
-      "Strategic business consulting to help you make informed financial decisions. From startup formation to growth strategy, we're your trusted financial advisor.",
-    features: ["Business Formation", "Cash Flow Analysis", "Budgeting & Forecasting", "Entity Selection"],
-  },
-  {
-    id: "irs-representation",
+    icon: "⚖️",
     title: "IRS Representation",
-    icon: "🛡️",
     description:
-      "Experienced representation before the IRS and state tax authorities. We advocate on your behalf for audits, appeals, collections, and other tax disputes.",
-    features: ["Audit Representation", "Offer in Compromise", "Tax Lien Resolution", "Penalty Abatement"],
+      "Facing an audit or IRS notice? Our experienced team will represent you before the IRS and work to resolve your tax issues quickly and professionally.",
+    link: "/contact-us",
+  },
+  {
+    icon: "💼",
+    title: "Payroll Services",
+    description:
+      "Streamlined payroll processing that keeps your employees paid on time and your business compliant with all federal, state, and local payroll tax requirements.",
+    link: "/contact-us",
+  },
+  {
+    icon: "🏠",
+    title: "Real Estate Tax Services",
+    description:
+      "Specialized tax guidance for real estate investors, rental property owners, and home buyers and sellers navigating capital gains and deductions.",
+    link: "/contact-us",
+  },
+  {
+    icon: "🌐",
+    title: "International Tax",
+    description:
+      "Expert help for expats, foreign nationals, and businesses with cross-border transactions — FBAR, FATCA compliance, and foreign income reporting.",
+    link: "/contact-us",
+  },
+  {
+    icon: "📈",
+    title: "Financial Consulting",
+    description:
+      "Strategic financial advice to help you grow your business, plan for retirement, and make sound decisions backed by accurate data and professional insight.",
+    link: "/contact-us",
   },
 ];
 
-const process = [
-  { step: "01", title: "Initial Consultation", description: "We meet to understand your financial situation, goals, and specific needs." },
-  { step: "02", title: "Document Collection", description: "We guide you through gathering all necessary financial documents and records." },
-  { step: "03", title: "Analysis & Preparation", description: "Our team carefully analyzes your information and prepares your returns or reports." },
-  { step: "04", title: "Review & Delivery", description: "We review everything with you, answer questions, and deliver final documents." },
-];
-
-const testimonials = [
+const faqs = [
   {
-    name: "Robert M.",
-    role: "Small Business Owner",
-    text: "J&S Tax has been handling our business taxes for five years. Their attention to detail and proactive advice has saved us thousands of dollars every year.",
-    rating: 5,
+    question: "How do I get started?",
+    answer:
+      "Simply contact us to schedule a free initial consultation. We'll review your situation and recommend the right services for your needs.",
   },
   {
-    name: "Linda K.",
-    role: "Self-Employed Consultant",
-    text: "Switching to J&S Tax was the best financial decision I made. They explained everything clearly and found deductions I never knew I qualified for.",
-    rating: 5,
+    question: "Do you work with both individuals and businesses?",
+    answer:
+      "Yes! We serve individuals, families, freelancers, small businesses, LLCs, corporations, and partnerships of all sizes.",
   },
   {
-    name: "David T.",
-    role: "Individual Taxpayer",
-    text: "Professional, responsive, and thorough. They handled my complicated tax situation involving multiple states without any issues.",
-    rating: 5,
+    question: "What documents do I need to bring?",
+    answer:
+      "For tax preparation, you'll typically need W-2s, 1099s, prior-year returns, and any records of deductions. We'll give you a personalized checklist at your consultation.",
+  },
+  {
+    question: "Can you help if I haven't filed taxes in several years?",
+    answer:
+      "Absolutely. We specialize in helping clients get caught up on back taxes and navigate IRS resolution programs without penalties piling up further.",
   },
 ];
 ---
 
-<Base title="Services — J&S Tax Accountants">
+<Base title={meta_title || title} description={description}>
   <!-- Hero Section -->
-  <section id="hero" class="relative bg-slate-800 text-white py-24 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 opacity-90"></div>
-    <div class="absolute inset-0 opacity-10"
-      style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 20px 20px;">
-    </div>
-    <div class="relative max-w-5xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blue-600 text-white text-sm font-semibold tracking-widest uppercase px-4 py-1 rounded-full mb-5">
-        What We Offer
-      </span>
-      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
-        Our <span class="text-blue-400">Services</span>
-      </h1>
-      <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-10">
-        From tax preparation to business consulting, J&amp;S Tax Accountants provides a full suite of financial services to individuals and businesses across the region.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#services-grid"
-          class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200">
-          Explore Services
-        </a>
-        <a href="#contact"
-          class="border border-slate-400 hover:border-white text-slate-300 hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200">
-          Get a Free Consultation
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Intro Banner -->
-  <section class="bg-blue-600 py-10">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
-        <div>
-          <div class="text-4xl font-bold mb-1">15+</div>
-          <div class="text-blue-100 text-sm uppercase tracking-wide">Years of Experience</div>
-        </div>
-        <div>
-          <div class="text-4xl font-bold mb-1">500+</div>
-          <div class="text-blue-100 text-sm uppercase tracking-wide">Clients Served</div>
-        </div>
-        <div>
-          <div class="text-4xl font-bold mb-1">6</div>
-          <div class="text-blue-100 text-sm uppercase tracking-wide">Core Services</div>
-        </div>
-        <div>
-          <div class="text-4xl font-bold mb-1">100%</div>
-          <div class="text-blue-100 text-sm uppercase tracking-wide">Client Satisfaction</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Grid Section -->
-  <section id="services-grid" class="py-24 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-blue-600 font-semibold text-sm uppercase tracking-widest">Full-Service Accounting</span>
-        <h2 class="text-4xl font-bold text-slate-800 mt-3 mb-4">Everything You Need Under One Roof</h2>
-        <p class="text-slate-500 max-w-2xl mx-auto text-lg">
-          We offer a comprehensive range of accounting and tax services designed to serve individuals, self-employed professionals, and businesses of all sizes.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service) => (
-          <div
-            id={service.id}
-            class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group border border-gray-100"
-          >
-            <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-6 flex items-center gap-4">
-              <span class="text-4xl">{service.icon}</span>
-              <h3 class="text-xl font-bold text-white">{service.title}</h3>
-            </div>
-            <div class="p-6">
-              <p class="text-slate-600 mb-5 leading-relaxed">{service.description}</p>
-              <ul class="space-y-2">
-                {service.features.map((feature) => (
-                  <li class="flex items-center gap-2 text-slate-700 text-sm">
-                    <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 text-xs font-bold">✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <div class="mt-6">
-                <a
-                  href="#contact"
-                  class="inline-block w-full text-center bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white font-semibold py-2.5 rounded-lg transition-colors duration-200 text-sm"
-                >
-                  Learn More →
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works / Process Section -->
-  <section id="process" class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-blue-600 font-semibold text-sm uppercase tracking-widest">Simple &amp; Transparent</span>
-        <h2 class="text-4xl font-bold text-slate-800 mt-3 mb-4">How We Work With You</h2>
-        <p class="text-slate-500 max-w-xl mx-auto text-lg">
-          Our straightforward process ensures a smooth experience from the first conversation to final delivery.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {process.map((item, index) => (
-          <div class="relative text-center">
-            {index < process.length - 1 && (
-              <div class="hidden lg:block absolute top-10 left-[60%] w-full h-0.5 bg-blue-100 z-0"></div>
-            )}
-            <div class="relative z-10 w-20 h-20 rounded-full bg-blue-600 text-white text-2xl font-bold flex items-center justify-center mx-auto mb-5 shadow-lg shadow-blue-200">
-              {item.step}
-            </div>
-            <h3 class="text-lg font-bold text-slate-800 mb-2">{item.title}</h3>
-            <p class="text-slate-500 text-sm leading-relaxed">{item.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Image / CTA Banner -->
-  <section class="relative py-24 bg-slate-900 overflow-hidden">
-    <img
-      src="/images/placeholder.jpg"
-      alt="Accounting office"
-      class="absolute inset-0 w-full h-full object-cover opacity-20"
-    />
-    <div class="relative max-w-4xl mx-auto px-6 text-center text-white">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">
-        Not Sure Which Service You Need?
-      </h2>
-      <p class="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-        Schedule a free, no-obligation consultation with one of our experienced accountants. We'll assess your situation and recommend the right solutions.
-      </p>
-      <a
-        href="#contact"
-        class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-10 py-4 rounded-lg text-lg transition-colors duration-200 shadow-xl shadow-blue-900/40"
+  <section
+    id="hero"
+    class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white overflow-hidden"
+  >
+    <div
+      class="absolute inset-0 opacity-10 bg-[url('/images/placeholder.jpg')] bg-cover bg-center"
+    ></div>
+    <div class="relative max-w-6xl mx-auto px-6 py-24 md:py-32 text-center">
+      <p
+        class="inline-block text-blue-200 uppercase tracking-widest text-sm font-semibold mb-4"
       >
-        Book a Free Consultation
-      </a>
+        What We Offer
+      </p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+        {hero_title}
+      </h1>
+      <p class="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed">
+        {hero_content}
+      </p>
+      {
+        hero_cta && (
+          <a
+            href={hero_cta.url}
+            class="inline-block bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold text-base px-8 py-4 rounded-lg shadow-lg transition-colors duration-200"
+          >
+            {hero_cta.label}
+          </a>
+        )
+      }
+    </div>
+    <!-- Wave divider -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg
+        viewBox="0 0 1440 60"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-full"
+        preserveAspectRatio="none"
+        height="60"
+      >
+        <path
+          d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"
+          fill="#f9fafb"></path>
+      </svg>
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="py-24 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-blue-600 font-semibold text-sm uppercase tracking-widest">Client Stories</span>
-        <h2 class="text-4xl font-bold text-slate-800 mt-3 mb-4">What Our Clients Say</h2>
-        <p class="text-slate-500 max-w-xl mx-auto text-lg">
-          Don't take our word for it — here's what our clients have to say about working with J&amp;S Tax Accountants.
+  <!-- Intro Strip -->
+  <section class="bg-gray-50 py-12">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <p class="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+        At J&amp;S Tax Accountants, we offer a full suite of tax and accounting
+        services designed to simplify your finances, ensure compliance, and help
+        you achieve your financial goals — all year long.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section id="services" class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <span
+          class="inline-block bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+        >
+          Our Services
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Comprehensive Tax &amp; Accounting Solutions
+        </h2>
+        <p class="text-gray-500 max-w-xl mx-auto">
+          From simple returns to complex business filings, we have the expertise
+          to handle it all.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {testimonials.map((testimonial) => (
-          <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col">
-            <div class="flex gap-1 mb-4">
-              {Array.from({ length: testimonial.rating }).map(() => (
-                <span class="text-yellow-400 text-lg">★</span>
-              ))}
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          services.map((service) => (
+            <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col">
+              <div class="text-4xl mb-5">{service.icon}</div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                {service.title}
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed flex-grow">
+                {service.description}
+              </p>
+              <a
+                href={service.link}
+                class="mt-6 inline-flex items-center text-blue-700 font-semibold text-sm group-hover:text-blue-500 transition-colors"
+              >
+                Learn More
+                <svg
+                  class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
             </div>
-            <p class="text-slate-600 italic leading-relaxed mb-6 flex-grow">"{testimonial.text}"</p>
-            <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
-              <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center flex-shrink-0">
-                {testimonial.name.charAt(0)}
-              </div>
-              <div>
-                <div class="font-semibold text-slate-800">{testimonial.name}</div>
-                <div class="text-slate-400 text-sm">{testimonial.role}</div>
-              </div>
-            </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <!-- Contact / CTA Section -->
-  <section id="contact" class="py-24 bg-white">
+  <!-- Why Choose Us Banner -->
+  <section class="bg-blue-800 text-white py-20">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <!-- Contact Info -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <span class="text-blue-600 font-semibold text-sm uppercase tracking-widest">Get In Touch</span>
-          <h2 class="text-4xl font-bold text-slate-800 mt-3 mb-5">Ready to Get Started?</h2>
-          <p class="text-slate-500 text-lg leading-relaxed mb-8">
-            Contact J&amp;S Tax Accountants today. Whether you have questions about a specific service or are ready to schedule your first appointment, we're here to help.
+          <span
+            class="inline-block text-yellow-400 uppercase tracking-widest text-xs font-bold mb-4"
+          >
+            Why J&amp;S Tax?
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+            Experience You Can Trust, Service You Deserve
+          </h2>
+          <p class="text-blue-200 leading-relaxed mb-6">
+            With over 20 years serving the community, our team of licensed CPAs
+            and enrolled agents bring deep expertise and personal attention to
+            every client relationship. We don't just file your taxes — we become
+            your long-term financial partners.
           </p>
-          <ul class="space-y-5">
-            <li class="flex items-start gap-4">
-              <span class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 text-lg flex-shrink-0">📍</span>
-              <div>
-                <div class="font-semibold text-slate-800">Our Office</div>
-                <div class="text-slate-500">123 Financial Drive, Suite 200<br/>Springfield, IL 62701</div>
-              </div>
-            </li>
-            <li class="flex items-start gap-4">
-              <span class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 text-lg flex-shrink-0">📞</span>
-              <div>
-                <div class="font-semibold text-slate-800">Phone</div>
-                <a href="tel:+15555551234" class="text-blue-600 hover:underline">(555) 555-1234</a>
-              </div>
-            </li>
-            <li class="flex items-start gap-4">
-              <span class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 text-lg flex-shrink-0">✉️</span>
-              <div>
-                <div class="font-semibold text-slate-800">Email</div>
-                <a href="mailto:info@jstaxaccountants.com" class="text-blue-600 hover:underline">info@jstaxaccountants.com</a>
-              </div>
-            </li>
-            <li class="flex items-start gap-4">
-              <span class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 text-lg flex-shrink-0">🕐</span>
-              <div>
-                <div class="font-semibold text-slate-800">Business Hours</div>
-                <div class="text-slate-500">Mon–Fri: 9:00 AM – 6:00 PM<br/>Sat: 10:00 AM – 2:00 PM</div>
-              </div>
-            </li>
+          <ul class="space-y-3">
+            {
+              [
+                "Licensed CPAs &amp; Enrolled Agents",
+                "Year-Round Support — Not Just Tax Season",
+                "Personalized Plans for Every Client",
+                "Secure, Confidential Document Handling",
+                "Transparent Pricing With No Hidden Fees",
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-blue-100">
+                  <svg
+                    class="w-5 h-5 text-yellow-400 mt-0.5 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span set:html={item} />
+                </li>
+              ))
+            }
           </ul>
         </div>
-
-        <!-- Contact Form -->
-        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm">
-          <h3 class="text-2xl font-bold text-slate-800 mb-6">Send Us a Message</h3>
-          <form class="space-y-5">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div>
-                <label class="block text-sm font-medium text-slate-700 mb-1.5" for="first-name">First Name</label>
-                <input
-                  id="first-name"
-                  type="text"
-                  placeholder="Jane"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-slate-700 mb-1.5" for="last-name">Last Name</label>
-                <input
-                  id="last-name"
-                  type="text"
-                  placeholder="Doe"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                />
-              </div>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-700 mb-1.5" for="email">Email Address</label>
-              <input
-                id="email"
-                type="email"
-                placeholder="jane@example.com"
-                class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-              />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-700 mb-1.5" for="service">Service of Interest</label>
-              <select
-                id="service"
-                class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-              >
-                <option value="">Select a service…</option>
-                {services.map((s) => (
-                  <option value={s.id}>{s.title}</option>
-                ))}
-                <option value="other">Other / Not Sure</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-700 mb-1.5" for="message">Message</label>
-              <textarea
-                id="message"
-                rows={4}
-                placeholder="Tell us a bit about your situation…"
-                class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg transition-colors duration-200 text-lg shadow-md shadow-blue-200"
-            >
-              Send Message
-            </button>
-          </form>
+        <div class="relative">
+          <img
+            src="/images/placeholder.jpg"
+            alt="Professional tax consultation"
+            class="rounded-2xl shadow-2xl w-full object-cover h-80 md:h-96"
+          />
+          <div
+            class="absolute -bottom-6 -left-6 bg-yellow-400 text-blue-900 rounded-xl px-6 py-4 shadow-xl"
+          >
+            <p class="text-3xl font-extrabold">20+</p>
+            <p class="text-sm font-semibold">Years of Experience</p>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {
+          [
+            { value: "5,000+", label: "Returns Filed" },
+            { value: "98%", label: "Client Satisfaction" },
+            { value: "20+", label: "Years in Business" },
+            { value: "$2M+", label: "Saved for Clients" },
+          ].map((stat) => (
+            <div>
+              <p class="text-4xl font-extrabold text-blue-800 mb-2">
+                {stat.value}
+              </p>
+              <p class="text-gray-500 text-sm font-medium">{stat.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <span
+          class="inline-block bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+        >
+          How It Works
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Our Simple 4-Step Process
+        </h2>
+        <p class="text-gray-500 max-w-xl mx-auto">
+          Getting started is easy. Here's how we work with clients from first
+          contact to finished return.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {
+          [
+            {
+              step: "01",
+              title: "Free Consultation",
+              desc: "Tell us about your situation and goals. We'll recommend the right services for you.",
+            },
+            {
+              step: "02",
+              title: "Document Gathering",
+              desc: "We provide a checklist and accept documents securely online, in-person, or by mail.",
+            },
+            {
+              step: "03",
+              title: "Preparation & Review",
+              desc: "Our experts prepare your returns and financial statements with precision and care.",
+            },
+            {
+              step: "04",
+              title: "Filing & Follow-Up",
+              desc: "We file electronically, confirm acceptance, and remain available for any follow-up questions.",
+            },
+          ].map((item) => (
+            <div class="text-center p-6">
+              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-800 text-white text-xl font-extrabold mb-5">
+                {item.step}
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="bg-gray-50 py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <span
+          class="inline-block bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+        >
+          Client Reviews
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          What Our Clients Are Saying
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          [
+            {
+              name: "Maria G.",
+              role: "Small Business Owner",
+              text: "J&S Tax has been handling my business taxes for 5 years now. They saved me thousands and I never have to worry about compliance. Highly recommend!",
+              rating: 5,
+            },
+            {
+              name: "David L.",
+              role: "Freelance Consultant",
+              text: "As a self-employed professional, taxes were always a nightmare. The team here made everything simple, explained every deduction, and filed quickly.",
+              rating: 5,
+            },
+            {
+              name: "Sandra M.",
+              role: "Real Estate Investor",
+              text: "Their knowledge of real estate tax law is exceptional. They helped me structure my properties in a way that significantly reduced my tax burden.",
+              rating: 5,
+            },
+          ].map((t) => (
+            <div class="bg-white rounded-2xl shadow-sm p-8 border border-gray-100">
+              <div class="flex mb-4">
+                {Array.from({ length: t.rating }).map(() => (
+                  <svg
+                    class="w-5 h-5 text-yellow-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                "{t.text}"
+              </p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center text-white font-bold text-sm">
+                  {t.name.charAt(0)}
+                </div>
+                <div>
+                  <p class="font-bold text-gray-900 text-sm">{t.name}</p>
+                  <p class="text-gray-400 text-xs">{t.role}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="bg-white py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <span
+          class="inline-block bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+        >
+          FAQ
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Frequently Asked Questions
+        </h2>
+      </div>
+      <div class="space-y-5">
+        {
+          faqs.map((faq) => (
+            <div class="border border-gray-200 rounded-xl p-6">
+              <h3 class="font-bold text-gray-900 mb-2">{faq.question}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">{faq.answer}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="cta" class="bg-yellow-400 py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-blue-900 mb-4">
+        Ready to Get Started?
+      </h2>
+      <p class="text-blue-800 text-lg mb-8 max-w-xl mx-auto">
+        Contact us today for a free consultation. Let's find the right tax
+        strategy for you.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact-us"
+          class="inline-block bg-blue-900 hover:bg-blue-800 text-white font-bold px-8 py-4 rounded-lg shadow-md transition-colors duration-200"
+        >
+          Schedule a Free Consultation
+        </a>
+        <a
+          href="tel:+15551234567"
+          class="inline-block bg-white hover:bg-gray-50 text-blue-900 font-bold px-8 py-4 rounded-lg shadow-md transition-colors duration-200"
+        >
+          Call Us: (555) 123-4567
+        </a>
       </div>
     </div>
   </section>
