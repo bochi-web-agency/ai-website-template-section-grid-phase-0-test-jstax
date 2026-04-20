@@ -3,203 +3,162 @@ import Base from "../layouts/Base.astro";
 
 const services = [
   {
-    icon: "📊",
+    icon: "📋",
     title: "Tax Preparation",
-    description:
-      "Accurate and timely personal and business tax preparation services tailored to your financial situation.",
+    description: "Accurate and timely personal and business tax returns filed with confidence and care.",
   },
   {
-    icon: "📁",
-    title: "Bookkeeping",
-    description:
-      "Comprehensive bookkeeping solutions to keep your financial records organized and up to date.",
+    icon: "📊",
+    title: "Accounting Services",
+    description: "Full-service bookkeeping and accounting to keep your finances organized year-round.",
   },
   {
     icon: "💼",
-    title: "Business Accounting",
-    description:
-      "Full-service accounting support for small and medium-sized businesses, from payroll to financial reporting.",
+    title: "Business Advisory",
+    description: "Strategic financial guidance to help your business grow and stay compliant.",
   },
   {
-    icon: "🏦",
-    title: "Tax Planning",
-    description:
-      "Strategic tax planning to minimize liabilities and maximize savings for individuals and businesses.",
+    icon: "🏢",
+    title: "Corporate Tax",
+    description: "Specialized corporate tax planning and filing for businesses of all sizes.",
   },
   {
-    icon: "📝",
-    title: "IRS Representation",
-    description:
-      "Professional representation and support when dealing with IRS audits, notices, and disputes.",
+    icon: "📑",
+    title: "GST & HST Filing",
+    description: "Hassle-free GST/HST registration, filing, and compliance management.",
   },
   {
-    icon: "📈",
-    title: "Financial Consulting",
-    description:
-      "Expert financial guidance to help you make informed decisions and achieve your financial goals.",
+    icon: "🔍",
+    title: "CRA Audit Support",
+    description: "Expert representation and support if you receive a CRA review or audit notice.",
   },
 ];
 
 const testimonials = [
   {
-    name: "Maria Gonzalez",
+    name: "Margaret T.",
     role: "Small Business Owner",
-    text: "J&S Tax Accountants have been handling our business taxes for three years. They are professional, thorough, and always responsive. I couldn't ask for better service!",
-    initials: "MG",
+    quote:
+      "J&S Tax Accountants have been handling our books for three years. They are thorough, responsive, and always find ways to save us money. Highly recommend!",
   },
   {
-    name: "David Thompson",
+    name: "David K.",
     role: "Freelance Consultant",
-    text: "Switching to J&S Tax was the best financial decision I made. They saved me thousands in taxes and made the entire process stress-free.",
-    initials: "DT",
+    quote:
+      "Filing taxes as a self-employed person used to stress me out. The team here made the whole process simple and straightforward. Excellent service.",
   },
   {
-    name: "Sandra Lee",
-    role: "Retail Store Owner",
-    text: "Their bookkeeping service keeps my business running smoothly. I always know exactly where my finances stand. Highly recommend!",
-    initials: "SL",
+    name: "Priya S.",
+    role: "Restaurant Owner",
+    quote:
+      "They handled our corporate tax and HST filings seamlessly. Professional, knowledgeable, and very easy to work with. We won't go anywhere else.",
   },
 ];
 
 const stats = [
   { value: "15+", label: "Years of Experience" },
-  { value: "500+", label: "Happy Clients" },
+  { value: "1,200+", label: "Clients Served" },
   { value: "98%", label: "Client Retention Rate" },
-  { value: "$2M+", label: "Tax Savings Delivered" },
+  { value: "100%", label: "Satisfaction Guarantee" },
 ];
 ---
 
-<Base title="J&S Tax Accountants – Professional Tax & Accounting Services">
-  <!-- NAV -->
+<Base title="Section Grid Phase 0 Test JSTax | Trusted Tax & Accounting Services">
+  <!-- NAVIGATION -->
   <header class="bg-white shadow-sm sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2">
-        <span class="text-2xl font-extrabold text-blue-800 tracking-tight">J&amp;S Tax</span>
-        <span class="text-sm font-semibold text-gray-500 hidden sm:inline">Accountants</span>
-      </a>
-      <nav class="hidden md:flex gap-8 text-sm font-semibold text-gray-700">
-        <a href="#hero" class="hover:text-blue-700 transition-colors">Home</a>
-        <a href="#services" class="hover:text-blue-700 transition-colors">Services</a>
-        <a href="#about" class="hover:text-blue-700 transition-colors">About Us</a>
-        <a href="#contact" class="hover:text-blue-700 transition-colors">Contact Us</a>
+      <div class="flex items-center gap-2">
+        <span class="text-2xl font-bold text-blue-800">J&amp;S</span>
+        <span class="text-xl font-semibold text-gray-700">Tax Accountants</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#hero" class="text-gray-600 hover:text-blue-700 font-medium transition-colors">Home</a>
+        <a href="#services" class="text-gray-600 hover:text-blue-700 font-medium transition-colors">Services</a>
+        <a href="#about" class="text-gray-600 hover:text-blue-700 font-medium transition-colors">About Us</a>
+        <a href="#contact" class="bg-blue-700 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-800 transition-colors">Contact Us</a>
       </nav>
-      <a
-        href="#contact"
-        class="hidden md:inline-block bg-blue-700 hover:bg-blue-800 text-white text-sm font-semibold px-5 py-2.5 rounded-md transition-colors"
-      >
-        Get a Free Quote
-      </a>
-      <button class="md:hidden p-2 rounded text-gray-700 hover:bg-gray-100" aria-label="Menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <button class="md:hidden text-gray-700 focus:outline-none" aria-label="Open menu">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section id="hero" class="relative bg-blue-900 text-white overflow-hidden">
-    <div class="absolute inset-0">
-      <img
-        src="/images/placeholder.jpg"
-        alt="Office background"
-        class="w-full h-full object-cover opacity-20"
-      />
+  <!-- HERO SECTION -->
+  <section id="hero" class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <img src="/images/placeholder.jpg" alt="" class="w-full h-full object-cover" />
     </div>
-    <div class="relative max-w-6xl mx-auto px-4 py-28 md:py-36 flex flex-col md:flex-row items-center gap-12">
-      <div class="flex-1 text-center md:text-left">
-        <span class="inline-block bg-blue-600 text-blue-100 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
-          Trusted Accounting Professionals
+    <div class="relative max-w-6xl mx-auto px-4 py-24 md:py-36 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="inline-block bg-blue-500/30 text-blue-100 text-sm font-semibold px-4 py-1 rounded-full mb-4 tracking-wide uppercase">
+          Professional Accounting Services
         </span>
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-          Expert Tax &amp; Accounting <span class="text-yellow-400">Services You Can Trust</span>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+          Tax &amp; Accounting<br />Solutions You Can<br />
+          <span class="text-yellow-400">Trust.</span>
         </h1>
-        <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-xl">
-          J&amp;S Tax Accountants provides personalized, reliable tax preparation, bookkeeping, and financial consulting for individuals and businesses.
+        <p class="text-blue-100 text-lg mb-8 max-w-md">
+          J&amp;S Tax Accountants delivers accurate, reliable, and personalized financial services for individuals and businesses across Canada.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <a
-            href="#contact"
-            class="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold px-8 py-4 rounded-lg text-base transition-colors shadow-lg"
-          >
-            Schedule a Consultation
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="bg-yellow-400 text-blue-900 font-bold px-8 py-3 rounded-lg hover:bg-yellow-300 transition-colors shadow-lg">
+            Book a Free Consultation
           </a>
-          <a
-            href="#services"
-            class="border-2 border-white hover:bg-white hover:text-blue-900 text-white font-bold px-8 py-4 rounded-lg text-base transition-colors"
-          >
-            Our Services
+          <a href="#services" class="border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-blue-800 transition-colors">
+            View Services
           </a>
         </div>
       </div>
-      <div class="flex-1 flex justify-center md:justify-end">
-        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 max-w-sm w-full">
-          <h2 class="text-xl font-bold mb-4 text-yellow-300">Free Tax Consultation</h2>
-          <form class="flex flex-col gap-3">
-            <input
-              type="text"
-              placeholder="Your Full Name"
-              class="bg-white/10 border border-white/30 rounded-lg px-4 py-3 text-white placeholder-blue-200 text-sm focus:outline-none focus:border-yellow-400 transition-colors"
-            />
-            <input
-              type="email"
-              placeholder="Email Address"
-              class="bg-white/10 border border-white/30 rounded-lg px-4 py-3 text-white placeholder-blue-200 text-sm focus:outline-none focus:border-yellow-400 transition-colors"
-            />
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              class="bg-white/10 border border-white/30 rounded-lg px-4 py-3 text-white placeholder-blue-200 text-sm focus:outline-none focus:border-yellow-400 transition-colors"
-            />
-            <button
-              type="submit"
-              class="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 rounded-lg text-sm transition-colors mt-1"
-            >
-              Request Free Consultation
-            </button>
-          </form>
+      <div class="hidden md:block">
+        <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-blue-500/40">
+          <img src="/images/placeholder.jpg" alt="Tax professional at work" class="w-full h-80 object-cover" />
         </div>
       </div>
+    </div>
+    <!-- Wave divider -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 60L1440 60L1440 0C1200 50 960 60 720 40C480 20 240 0 0 30Z" fill="white"/>
+      </svg>
     </div>
   </section>
 
-  <!-- STATS BANNER -->
-  <section class="bg-blue-700 text-white py-10">
+  <!-- STATS SECTION -->
+  <section class="bg-white py-16">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((stat) => (
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold text-yellow-300">{stat.value}</span>
-            <span class="text-sm text-blue-100 mt-1 font-medium">{stat.label}</span>
+          <div class="text-center">
+            <p class="text-4xl font-extrabold text-blue-800 mb-1">{stat.value}</p>
+            <p class="text-gray-500 font-medium">{stat.label}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services" class="py-20 bg-gray-50">
+  <!-- SERVICES SECTION -->
+  <section id="services" class="bg-gray-50 py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-14">
-        <span class="text-blue-700 text-sm font-bold uppercase tracking-widest">What We Offer</span>
-        <h2 class="text-4xl font-extrabold text-gray-900 mt-2 mb-4">Our Accounting &amp; Tax Services</h2>
-        <p class="text-gray-500 max-w-2xl mx-auto text-lg">
-          We offer a full range of financial services designed to help you navigate taxes and grow your business with confidence.
+        <span class="text-blue-700 font-semibold uppercase tracking-widest text-sm">What We Offer</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-4">Our Core Services</h2>
+        <p class="text-gray-500 max-w-xl mx-auto text-lg">
+          From personal tax returns to full corporate accounting, we provide the financial expertise your situation demands.
         </p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service) => (
-          <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg border border-gray-100 p-8 flex flex-col gap-4 transition-shadow group">
-            <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-3xl group-hover:bg-blue-100 transition-colors">
-              {service.icon}
-            </div>
-            <h3 class="text-xl font-bold text-gray-900">{service.title}</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">{service.description}</p>
-            <a href="#contact" class="text-blue-700 text-sm font-semibold hover:underline mt-auto inline-flex items-center gap-1">
-              Learn More
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
+          <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100 group">
+            <div class="text-4xl mb-4">{service.icon}</div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-700 transition-colors">
+              {service.title}
+            </h3>
+            <p class="text-gray-500 leading-relaxed">{service.description}</p>
+            <a href="#contact" class="inline-block mt-5 text-blue-700 font-semibold text-sm hover:underline">
+              Learn more →
             </a>
           </div>
         ))}
@@ -207,79 +166,60 @@ const stats = [
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center gap-14">
-        <div class="flex-1">
-          <div class="relative rounded-2xl overflow-hidden shadow-xl">
-            <img
-              src="/images/placeholder.jpg"
-              alt="Our team at J&S Tax Accountants"
-              class="w-full h-80 object-cover"
-            />
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-900/80 to-transparent p-6">
-              <p class="text-white font-bold text-lg">Your Trusted Financial Partners</p>
-              <p class="text-blue-200 text-sm">Serving the community for over 15 years</p>
-            </div>
-          </div>
-        </div>
-        <div class="flex-1">
-          <span class="text-blue-700 text-sm font-bold uppercase tracking-widest">About J&amp;S Tax</span>
-          <h2 class="text-4xl font-extrabold text-gray-900 mt-2 mb-6 leading-tight">
-            Dedicated Professionals <br />Here to Serve You
-          </h2>
-          <p class="text-gray-600 mb-4 leading-relaxed">
-            At J&amp;S Tax Accountants, we believe that every client deserves personalized attention and expert financial guidance. With over 15 years of experience serving individuals and businesses, our team is committed to delivering accurate, timely, and strategic accounting solutions.
-          </p>
-          <p class="text-gray-600 mb-8 leading-relaxed">
-            Whether you need help filing your annual taxes, managing your business books, or planning for the future, we are here to make the process simple and stress-free. Our certified professionals stay up to date with the latest tax laws to ensure you always get the best outcome.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <div class="flex items-start gap-3">
-              <span class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-blue-900 font-bold text-sm flex-shrink-0">✓</span>
-              <span class="text-gray-700 text-sm font-medium">IRS Enrolled Agents &amp; CPAs on staff</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-blue-900 font-bold text-sm flex-shrink-0">✓</span>
-              <span class="text-gray-700 text-sm font-medium">Year-round support, not just tax season</span>
-            </div>
-          </div>
-          <a
-            href="#contact"
-            class="inline-block mt-8 bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-4 rounded-lg transition-colors"
-          >
-            Meet Our Team
-          </a>
-        </div>
+  <!-- ABOUT SECTION -->
+  <section id="about" class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-14 items-center">
+      <div class="rounded-2xl overflow-hidden shadow-xl">
+        <img src="/images/placeholder.jpg" alt="Our team of accountants" class="w-full h-96 object-cover" />
+      </div>
+      <div>
+        <span class="text-blue-700 font-semibold uppercase tracking-widest text-sm">Who We Are</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-6">
+          Dedicated Professionals With a Personal Touch
+        </h2>
+        <p class="text-gray-600 mb-4 leading-relaxed">
+          J&amp;S Tax Accountants has been proudly serving individuals, families, and businesses for over 15 years. Our team of certified professionals is committed to delivering accurate, transparent, and timely financial services tailored to your unique needs.
+        </p>
+        <p class="text-gray-600 mb-6 leading-relaxed">
+          We believe that great accounting is more than numbers — it's about building lasting relationships and helping our clients achieve financial peace of mind. Whether you're filing a personal return or managing a growing corporation, we're here to help every step of the way.
+        </p>
+        <ul class="space-y-3 mb-8">
+          {["CPA-certified team", "Personalized tax strategies", "Year-round support", "Transparent pricing"].map((item) => (
+            <li class="flex items-center gap-3 text-gray-700 font-medium">
+              <span class="w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <a href="#contact" class="inline-block bg-blue-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors shadow">
+          Meet Our Team
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="py-20 bg-blue-900 text-white">
+  <!-- TESTIMONIALS SECTION -->
+  <section id="testimonials" class="bg-blue-900 py-20 text-white">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-14">
-        <span class="text-yellow-400 text-sm font-bold uppercase tracking-widest">Client Reviews</span>
-        <h2 class="text-4xl font-extrabold mt-2 mb-4">What Our Clients Say</h2>
-        <p class="text-blue-200 max-w-xl mx-auto">
-          Don't just take our word for it — hear from the individuals and business owners who trust us with their finances.
+        <span class="text-yellow-400 font-semibold uppercase tracking-widest text-sm">Client Feedback</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">What Our Clients Say</h2>
+        <p class="text-blue-200 max-w-xl mx-auto text-lg">
+          Hundreds of satisfied clients trust us with their most important financial decisions.
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {testimonials.map((t) => (
-          <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 flex flex-col gap-4">
-            <div class="flex gap-1 text-yellow-400 text-lg">
-              ★★★★★
-            </div>
-            <p class="text-blue-100 text-sm leading-relaxed italic">"{t.text}"</p>
-            <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/20">
-              <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                {t.initials}
+          <div class="bg-blue-800/50 border border-blue-700/50 rounded-2xl p-8 hover:bg-blue-800/70 transition-colors">
+            <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
+            <p class="text-blue-100 leading-relaxed mb-6 italic">"{t.quote}"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white text-sm">
+                {t.name.charAt(0)}
               </div>
               <div>
-                <p class="font-bold text-white text-sm">{t.name}</p>
-                <p class="text-blue-300 text-xs">{t.role}</p>
+                <p class="font-bold text-white">{t.name}</p>
+                <p class="text-blue-300 text-sm">{t.role}</p>
               </div>
             </div>
           </div>
@@ -288,136 +228,158 @@ const stats = [
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-20 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-14">
-        <span class="text-blue-700 text-sm font-bold uppercase tracking-widest">Get In Touch</span>
-        <h2 class="text-4xl font-extrabold text-gray-900 mt-2 mb-4">Contact J&amp;S Tax Accountants</h2>
-        <p class="text-gray-500 max-w-xl mx-auto">
-          Ready to get started? Reach out today and one of our accounting professionals will be in touch shortly.
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="bg-gray-50 py-20">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-14 items-start">
+      <div>
+        <span class="text-blue-700 font-semibold uppercase tracking-widest text-sm">Get In Touch</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-6">
+          Ready to Get Started? Let's Talk.
+        </h2>
+        <p class="text-gray-600 mb-8 leading-relaxed">
+          Book a free consultation with one of our certified accountants today. Whether you have a quick question or need comprehensive financial planning, we're here to help.
         </p>
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 bg-blue-100 rounded-xl flex items-center justify-center text-blue-700 text-xl flex-shrink-0">📍</div>
+            <div>
+              <p class="font-semibold text-gray-800">Office Address</p>
+              <p class="text-gray-500">123 Financial Drive, Suite 200, Toronto, ON M5V 1A1</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 bg-blue-100 rounded-xl flex items-center justify-center text-blue-700 text-xl flex-shrink-0">📞</div>
+            <div>
+              <p class="font-semibold text-gray-800">Phone</p>
+              <p class="text-gray-500">(416) 555-0198</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 bg-blue-100 rounded-xl flex items-center justify-center text-blue-700 text-xl flex-shrink-0">✉️</div>
+            <div>
+              <p class="font-semibold text-gray-800">Email</p>
+              <p class="text-gray-500">info@jstaxaccountants.com</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 bg-blue-100 rounded-xl flex items-center justify-center text-blue-700 text-xl flex-shrink-0">🕐</div>
+            <div>
+              <p class="font-semibold text-gray-800">Office Hours</p>
+              <p class="text-gray-500">Mon–Fri: 9:00 AM – 6:00 PM</p>
+              <p class="text-gray-500">Sat: 10:00 AM – 2:00 PM</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="flex flex-col lg:flex-row gap-10">
-        <!-- Contact Info -->
-        <div class="flex-1 flex flex-col gap-6">
-          <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex items-start gap-4">
-            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-700 text-xl flex-shrink-0">📍</div>
+      <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">Book a Free Consultation</h3>
+        <form class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <p class="font-bold text-gray-900 mb-1">Our Office</p>
-              <p class="text-gray-500 text-sm">123 Financial Way, Suite 200<br />Los Angeles, CA 90001</p>
-            </div>
-          </div>
-          <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex items-start gap-4">
-            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-700 text-xl flex-shrink-0">📞</div>
-            <div>
-              <p class="font-bold text-gray-900 mb-1">Call Us</p>
-              <p class="text-gray-500 text-sm">(555) 234-5678</p>
-              <p class="text-gray-400 text-xs mt-1">Mon–Fri: 9am – 6pm</p>
-            </div>
-          </div>
-          <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex items-start gap-4">
-            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-700 text-xl flex-shrink-0">✉️</div>
-            <div>
-              <p class="font-bold text-gray-900 mb-1">Email Us</p>
-              <p class="text-gray-500 text-sm">info@jstaxaccountants.com</p>
-              <p class="text-gray-400 text-xs mt-1">We respond within 24 hours</p>
-            </div>
-          </div>
-          <div class="bg-blue-700 rounded-2xl p-6 text-white">
-            <h3 class="font-bold text-lg mb-2">Tax Season Hours</h3>
-            <p class="text-blue-100 text-sm">Jan 15 – Apr 15: Mon–Sat 8am–8pm</p>
-            <p class="text-blue-100 text-sm">Sunday: 10am – 4pm</p>
-          </div>
-        </div>
-        <!-- Contact Form -->
-        <div class="flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-          <h3 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
-          <form class="flex flex-col gap-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="text-sm font-semibold text-gray-700 block mb-1">First Name</label>
-                <input
-                  type="text"
-                  placeholder="John"
-                  class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors"
-                />
-              </div>
-              <div>
-                <label class="text-sm font-semibold text-gray-700 block mb-1">Last Name</label>
-                <input
-                  type="text"
-                  placeholder="Smith"
-                  class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors"
-                />
-              </div>
-            </div>
-            <div>
-              <label class="text-sm font-semibold text-gray-700 block mb-1">Email Address</label>
+              <label class="block text-gray-700 font-medium mb-1 text-sm" for="first-name">First Name</label>
               <input
-                type="email"
-                placeholder="john@example.com"
-                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors"
+                id="first-name"
+                type="text"
+                placeholder="Jane"
+                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
               />
             </div>
             <div>
-              <label class="text-sm font-semibold text-gray-700 block mb-1">Phone Number</label>
+              <label class="block text-gray-700 font-medium mb-1 text-sm" for="last-name">Last Name</label>
               <input
-                type="tel"
-                placeholder="(555) 000-0000"
-                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors"
+                id="last-name"
+                type="text"
+                placeholder="Doe"
+                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
               />
             </div>
-            <div>
-              <label class="text-sm font-semibold text-gray-700 block mb-1">Service Needed</label>
-              <select class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-600 focus:outline-none focus:border-blue-500 transition-colors">
-                <option value="">Select a service...</option>
-                <option>Tax Preparation</option>
-                <option>Bookkeeping</option>
-                <option>Business Accounting</option>
-                <option>Tax Planning</option>
-                <option>IRS Representation</option>
-                <option>Financial Consulting</option>
-              </select>
-            </div>
-            <div>
-              <label class="text-sm font-semibold text-gray-700 block mb-1">Message</label>
-              <textarea
-                placeholder="Tell us about your needs..."
-                rows={4}
-                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors resize-none"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 rounded-lg transition-colors mt-1"
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-1 text-sm" for="email">Email Address</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="jane@example.com"
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            />
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-1 text-sm" for="phone">Phone Number</label>
+            <input
+              id="phone"
+              type="tel"
+              placeholder="(416) 555-0100"
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            />
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-1 text-sm" for="service">Service Needed</label>
+            <select
+              id="service"
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition bg-white"
             >
-              Send Message
-            </button>
-          </form>
-        </div>
+              <option value="">Select a service...</option>
+              <option>Tax Preparation</option>
+              <option>Accounting Services</option>
+              <option>Business Advisory</option>
+              <option>Corporate Tax</option>
+              <option>GST &amp; HST Filing</option>
+              <option>CRA Audit Support</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-1 text-sm" for="message">Message</label>
+            <textarea
+              id="message"
+              rows="4"
+              placeholder="Tell us a bit about your situation..."
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-blue-700 text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition-colors shadow-md text-lg"
+          >
+            Send Message
+          </button>
+        </form>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-900 text-gray-400 py-10">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="text-center md:text-left">
-          <span class="text-white font-extrabold text-xl">J&amp;S Tax Accountants</span>
-          <p class="text-sm mt-1">Trusted financial professionals serving our community.</p>
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-2xl font-bold text-white">J&amp;S</span>
+          <span class="text-lg font-semibold text-gray-300">Tax Accountants</span>
         </div>
-        <nav class="flex gap-6 text-sm">
-          <a href="#hero" class="hover:text-white transition-colors">Home</a>
-          <a href="#services" class="hover:text-white transition-colors">Services</a>
-          <a href="#about" class="hover:text-white transition-colors">About Us</a>
-          <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-        </nav>
+        <p class="text-gray-400 leading-relaxed text-sm">
+          Trusted tax and accounting professionals helping individuals and businesses achieve financial clarity and compliance.
+        </p>
       </div>
-      <div class="border-t border-gray-800 mt-8 pt-6 text-center text-xs text-gray-600">
-        &copy; {new Date().getFullYear()} J&amp;S Tax Accountants. All rights reserved.
+      <div>
+        <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#hero" class="hover:text-white transition-colors">Home</a></li>
+          <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+          <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+          <li><a href="#contact" class="hover:text-white transition-colors">Contact Us</a></li>
+        </ul>
       </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Contact Info</h4>
+        <ul class="space-y-2 text-sm">
+          <li>123 Financial Drive, Suite 200</li>
+          <li>Toronto, ON M5V 1A1</li>
+          <li>(416) 555-0198</li>
+          <li>info@jstaxaccountants.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+      © {new Date().getFullYear()} J&amp;S Tax Accountants. All rights reserved.
     </div>
   </footer>
 </Base>
